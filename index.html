@@ -9,6 +9,35 @@
   </head>
   <body>
 
+    <div class="site-nav">
+      <label for="nav-state" class="hamburger open">
+        <div></div>
+      </label>
+      <input type="checkbox" id="nav-state">
+
+      <nav class="menu">
+        <header>
+          <h2 class="title">MENU</h2>
+          <label for="nav-state" class="hamburger close">
+            <div></div>
+          </label>
+        </header>
+
+        <ul>
+          <li>
+            <a href="/" class="selected">
+              <span class="item">About</span>
+            </a>
+          </li>
+          <li>
+            <a href="/portfolio">
+              <span class="item">Portfolio</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
     <div class="intro hero">
       <div class="hero_text">
         <h1 class="title">I'm George</h1>
@@ -169,10 +198,11 @@
             <i class="fas fa-project-diagram icon"></i>&nbsp;
             PROJECTS
           </h2>
-          <p class="subtitle">Made these to learn new stuff</p>
+          <p class="subtitle">Made these to learn new stuff. <a href="/portfolio">More&nbsp;>></a></p>
           <div class="content">
 
             <div class="project mevn-boilerplate">
+              <img class="project-image" src="assets/img/mevn-boilerplate.PNG" alt="screenshot of mevn-boilerplate project">
               <div class="project-text">
                 <h3>
                   <a href="https://github.com/GeorgeEYokoyama/mevn-boilerplate/" target="_blank">
@@ -181,10 +211,10 @@
                 </h3>
                 <p>A simple web app boilerplate built on MongoDB, Node.js, Express, and Vue.js. Authentication and app routes are already setup so that developers can hit the ground running.</p>
               </div>
-              <img class="project-image" src="assets/img/mevn-boilerplate.PNG" alt="screenshot of mevn-boilerplate project">
             </div>
 
             <div class="project secret-diary">
+              <img class="project-image" src="assets/img/secret-diary.PNG" alt="screenshot of secret-diary project">
               <div class="project-text">
                 <h3>
                   <a href="https://github.com/georgeeyokoyama/secret-diary" target="_blank">
@@ -193,7 +223,6 @@
                 </h3>
                 <p>A diary app created with PHP and MySQL. Users can create rich text to write down their thoughts and ideas with style.</p>
               </div>
-              <img class="project-image" src="assets/img/secret-diary.PNG" alt="screenshot of secret-diary project">
             </div>
 
           </div>

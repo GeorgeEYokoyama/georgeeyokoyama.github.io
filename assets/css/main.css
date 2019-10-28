@@ -18,18 +18,24 @@ h2 {
   font-size: 1.8em;
 }
 
+img {
+  width: 100%;
+}
+
 a {
-  color: darkgoldenrod;
+  color: goldenrod;
   text-decoration: none;
-  border-bottom: 1px dotted darkgoldenrod;
+  border-bottom: 1px dotted goldenrod;
 }
 
 figure {
   margin: 0;
+  max-width: 768px;
 }
 
 figcaption {
   text-align: center;
+  font-size: 0.9em;
 }
 
 hr {
@@ -43,6 +49,7 @@ hr {
 .site-footer {
   background-color: black;
   padding: 3em 1em;
+  margin-top: 1rem;
   text-align: center;
 }
 
@@ -58,12 +65,12 @@ hr {
 }
 
 .site-footer a.icon:hover {
-  color: darkgoldenrod;
+  color: goldenrod;
 }
 
 main {
   max-width: 1366px;
-  margin: 1em auto;
+  margin: 0 auto;
 }
 
 section {
@@ -78,14 +85,15 @@ section .in-box {
   padding: 2em;
 }
 
+section .in-box .content {
+  margin: 1.5em 0;
+}
+
 section .out-box {
   padding: 1em;
   max-width: 480px;
   margin-top: 2em;
   text-align: center;
-}
-
-section .out-box {
 }
 
 section .icon {
@@ -171,29 +179,21 @@ section.about .out-box {
   margin: auto;
 }
 
-.projects .project .project-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
 .projects .project .project-text h3 a {
   font-size: 1.2em;
   white-space: nowrap;
-}
-
-.projects .project .project-text p {
-  display: none;
 }
 
 @media (min-width: 768px) {
   .projects .project .project-text h4 a {
     font-size: 1.6em;
   }
+
   .projects .project {
     display: flex;
     justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: center;
     margin: 0;
     max-width: 100%;
   }
@@ -241,6 +241,11 @@ section.about .out-box {
   }
 }
 
+/* Page -- Portfolio */
+.portfolio .hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/header_image.jpg");
+}
+
 /********** STACK **********/
 .stack-item {
   margin: 2.5em 0;
@@ -281,6 +286,7 @@ section.about .out-box {
 .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
   height: 100%;
+  margin-bottom: 1rem;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -317,6 +323,122 @@ section.about .out-box {
   }
 }
 
+/********** NAVIGATION **********/
+.site-nav {
+  position: fixed;
+  z-index: 2;
+  top: 1em;
+  right: 1em;
+}
+
+.site-nav input[type=checkbox]:checked ~ nav.menu {
+  transform: translateX(0);
+}
+
+.site-nav input[type=checkbox] {
+  display: none;
+}
+
+.hamburger {
+  width: 40px;
+  display: block;
+}
+
+.hamburger:before,
+.hamburger:after,
+.hamburger div {
+  background-color: #fff;
+  border-radius: 3px;
+  content: '';
+  display: block;
+  height: 5px;
+  margin: 7px 0;
+  transition: all .2s ease-in-out;
+}
+
+.hamburger.close:hover:before {
+  transform: translateY(12px) rotate(135deg);
+}
+
+.hamburger.close:hover:after {
+  transform: translateY(-12px) rotate(-135deg);
+}
+
+.hamburger.close:hover div {
+  transform: scale(0);
+}
+
+.menu {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  background-color: black;
+  overflow-x: hidden;
+  transition: 0.5s;
+  transform: translateX(100%);
+}
+
+.menu header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 4.2rem;
+}
+
+.menu header .title {
+  box-sizing: border-box;
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.menu ul {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 50% 50%;
+  height: calc(100vh - 4.2rem);
+}
+
+.menu ul li {
+  list-style: none;
+  border: solid 1px black;
+}
+
+.menu ul li a {
+  background-color: rgba(20, 20, 20, 1);
+  color: white;
+  height: 100%;
+  position: relative;
+  display: block;
+  border: none;
+  font-size: 1.2em;
+}
+
+.menu ul li a:hover {
+  transition: 0.5s;
+  background-color: darkgrey;
+  color: black;
+}
+
+.menu ul li a.selected {
+  color: goldenrod;
+  background-color: darkcyan;
+  font-weight: bold;
+}
+
+.menu ul li a .item {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+}
+
 /********** HELPER **********/
 .title, .subtitle {
   text-align: center;
@@ -338,5 +460,5 @@ section.about .out-box {
 }
 
 .separator {
-  color: darkgoldenrod;
+  color: goldenrod;
 }
