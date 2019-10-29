@@ -2,7 +2,9 @@
 personal website
 
 ## To Do:
-1. Add navigation
-2. Add tooltip for keywords
-3. Improve project section
-4. Add transition animation
+* Add tooltip for keywords
+* Improve project section
+* Add transition animation
+* Add icon
+* Add current page indicator to site nav
+* Add a secondary navigation for in-page navigation 
