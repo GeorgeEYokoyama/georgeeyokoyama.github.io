@@ -11,6 +11,7 @@ html, body {
 
 html {
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -30,6 +31,10 @@ a {
   color: goldenrod;
   text-decoration: none;
   border-bottom: 1px dotted goldenrod;
+}
+
+a:hover {
+  color: lightgrey;
 }
 
 figure {
@@ -55,6 +60,7 @@ hr {
   padding: 3em 1em;
   margin-top: 1rem;
   text-align: center;
+  position: relative;
 }
 
 .site-footer .social {
@@ -328,6 +334,25 @@ section.about .out-box {
 }
 
 /********** NAVIGATION **********/
+.to-top {
+  z-index: 6;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  visibility: visible;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+.to-top a {
+  border: none;
+  display: inline-block;
+  height: 2.5rem;
+  width: 2.5rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .nav-trigger-state {
   display: none;
 }
@@ -337,11 +362,25 @@ section.about .out-box {
   visibility: visible;
 }
 
+.nav-trigger-state:checked ~ .nav-trigger span {
+  background-color: transparent;
+}
+
+.nav-trigger-state:checked ~ .nav-trigger span:before {
+  transform: translate(-50%, -2px) rotate(-45deg);
+  background-color: darkred;
+}
+
+.nav-trigger-state:checked ~ .nav-trigger span:after {
+  transform: translate(-50%, -2px) rotate(45deg);
+  background-color: darkred;
+}
+
 .nav-trigger {
   position: fixed;
   z-index: 8;
-  height: 45px;
-  width: 45px;
+  height: 2.5rem;
+  width: 2.5rem;
   top: 5%;
   right: 5%;
 }
@@ -352,7 +391,7 @@ section.about .out-box {
 
 .nav-trigger:before {
   content: '';
-  background-color: darkcyan;
+  background-color: goldenrod;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -367,7 +406,12 @@ section.about .out-box {
   transform: translate(-50%, -50%);
   background-color: black;
   height: 4px;
-  width: 25px;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.nav-trigger span {
+  width: 58%;
 }
 
 .nav-trigger span:before {
@@ -377,7 +421,7 @@ section.about .out-box {
 
 .nav-trigger span:after {
   content: '';
-  transform: translate(-50%, 8px);
+  transform: translate(-50%, 9px);
 }
 
 .site-nav {
@@ -458,22 +502,34 @@ section.about .out-box {
 
 .site-nav nav {
   text-transform: capitalize;
+  width: 70%;
 }
 
 .site-nav ul li {
   margin: 1em 0;
 }
 
+.site-nav ul li.selected a {
+  color: lightgrey;
+}
+
 .site-nav a.nav-link {
   font-size: 1.6em;
+  font-weight: bold;
+  display: block;
+}
+
+.site-nav ul li.selected a.nav-link {
+  margin-left: -1.5rem;
+}
+
+.site-nav a.nav-link:hover {
+  margin-left: -1.5rem;
 }
 
 .site-nav a {
   border-bottom: none;
-}
-
-.site-nav a:hover {
-  color: lightgrey;
+  transition: 0.3s;
 }
 
 /********** HELPER **********/
