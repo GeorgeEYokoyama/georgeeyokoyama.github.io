@@ -9,33 +9,44 @@
   </head>
   <body>
 
-    <div class="site-nav">
-      <label for="nav-state" class="hamburger open">
-        <div></div>
+    <div class="site-nav-wrapper">
+      <input type="checkbox" id="nav-trigger-state" class="nav-trigger-state">
+
+      <label for="nav-trigger-state" id="nav-trigger" class="nav-trigger">
+        <span></span>
       </label>
-      <input type="checkbox" id="nav-state">
 
-      <nav class="menu">
-        <header>
-          <h2 class="title">MENU</h2>
-          <label for="nav-state" class="hamburger close">
-            <div></div>
-          </label>
-        </header>
-
-        <ul>
-          <li>
-            <a href="/" class="selected">
-              <span class="item">About</span>
-            </a>
-          </li>
-          <li>
-            <a href="/portfolio">
-              <span class="item">Portfolio</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div class="site-nav">
+        <div class="site-nav-content">
+          <h2 class="subtitle small">Navigation</h2>
+          <nav>
+            <ul>
+              <li>
+                <a class="nav-link" href="/">
+                  About
+                </a>
+              </li>
+              <li>
+                <a class="nav-link" href="/projects">
+                  Projects
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <div class="additional-info">
+          <h2 class="subtitle small">Contact Info</h2>
+          <address>
+            <ul>
+              <li>
+                <a href="mailto:george_y@outlook.com">george_y@outlook.com</a>
+              </li>
+              <li>(831) 346-2881</li>
+              <li>Dublin, CA</li>
+            </ul>
+          </address>
+        </div>
+      </div>
     </div>
 
     <div class="intro hero">
@@ -198,7 +209,7 @@
             <i class="fas fa-project-diagram icon"></i>&nbsp;
             PROJECTS
           </h2>
-          <p class="subtitle">Made these to learn new stuff. <a href="/portfolio">More&nbsp;>></a></p>
+          <p class="subtitle">Made these to learn new stuff. <a href="/projects">More&nbsp;>></a></p>
           <div class="content">
 
             <div class="project mevn-boilerplate">

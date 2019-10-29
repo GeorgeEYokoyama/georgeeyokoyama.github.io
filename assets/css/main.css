@@ -9,6 +9,10 @@ html, body {
   color: darkgrey;
 }
 
+html {
+  overflow-y: scroll;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: lato, sans-serif;
   color: lightgrey;
@@ -324,119 +328,152 @@ section.about .out-box {
 }
 
 /********** NAVIGATION **********/
-.site-nav {
-  position: fixed;
-  z-index: 2;
-  top: 1em;
-  right: 1em;
-}
-
-.site-nav input[type=checkbox]:checked ~ nav.menu {
-  transform: translateX(0);
-}
-
-.site-nav input[type=checkbox] {
+.nav-trigger-state {
   display: none;
 }
 
-.hamburger {
-  width: 40px;
-  display: block;
+.nav-trigger-state:checked ~ .site-nav {
+  opacity: 1;
+  visibility: visible;
 }
 
-.hamburger:before,
-.hamburger:after,
-.hamburger div {
-  background-color: #fff;
-  border-radius: 3px;
+.nav-trigger {
+  position: fixed;
+  z-index: 8;
+  height: 45px;
+  width: 45px;
+  top: 5%;
+  right: 5%;
+}
+
+.nav-trigger:hover {
+  cursor: grab;
+}
+
+.nav-trigger:before {
   content: '';
-  display: block;
-  height: 5px;
-  margin: 7px 0;
-  transition: all .2s ease-in-out;
+  background-color: darkcyan;
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
-.hamburger.close:hover:before {
-  transform: translateY(12px) rotate(135deg);
+.nav-trigger span:before,
+.nav-trigger span:after,
+.nav-trigger span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  height: 4px;
+  width: 25px;
 }
 
-.hamburger.close:hover:after {
-  transform: translateY(-12px) rotate(-135deg);
+.nav-trigger span:before {
+  content: '';
+  transform: translate(-50%, -12px);
 }
 
-.hamburger.close:hover div {
-  transform: scale(0);
+.nav-trigger span:after {
+  content: '';
+  transform: translate(-50%, 8px);
 }
 
-.menu {
+.site-nav {
   position: fixed;
   height: 100%;
   width: 100%;
-  z-index: 3;
-  left: 0;
-  top: 0;
-  background-color: black;
-  overflow-x: hidden;
-  transition: 0.5s;
-  transform: translateX(100%);
-}
-
-.menu header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1rem;
-  height: 4.2rem;
-}
-
-.menu header .title {
-  box-sizing: border-box;
-  margin: 0;
-  font-size: 1.5em;
-}
-
-.menu ul {
-  position: relative;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-rows: 50% 50%;
-  height: calc(100vh - 4.2rem);
-}
-
-.menu ul li {
-  list-style: none;
-  border: solid 1px black;
-}
-
-.menu ul li a {
+  z-index: 7;
   background-color: rgba(20, 20, 20, 1);
-  color: white;
-  height: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.3s;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 5% 20%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+@media (min-width: 1024px) {
+  .site-nav {
+    padding: 10% 25%;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
+
+  .site-nav .additional-info {
+    text-align: right;
+  }
+
+  .site-nav .additional-info address {
+    font-style: normal;
+  }
+
+  .site-nav .additional-info h2 {
+    margin-left: auto;
+  }
+
+  .site-nav li {
+    font-size: 1.4em;
+  }
+}
+
+.site-nav .site-nav-content,
+.site-nav .additional-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-nav h2 {
+  margin: 1.5em 0 0;
+  text-align: left;
+  font-weight: normal;
+  text-transform: uppercase;
   position: relative;
-  display: block;
-  border: none;
-  font-size: 1.2em;
 }
 
-.menu ul li a:hover {
-  transition: 0.5s;
-  background-color: darkgrey;
-  color: black;
-}
-
-.menu ul li a.selected {
-  color: goldenrod;
-  background-color: darkcyan;
-  font-weight: bold;
-}
-
-.menu ul li a .item {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.site-nav h2:before {
+  content: '';
   position: absolute;
+  height: 1px;
+  top: 50%;
+  left: 0;
+  width: 25px;
+  transform: translate(calc(-100% - 10px), 0);
+  background-color: darkcyan;
+}
+
+.site-nav .additional-info li:last-of-type {
+  margin-bottom: 4em
+}
+
+.site-nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.site-nav nav {
+  text-transform: capitalize;
+}
+
+.site-nav ul li {
+  margin: 1em 0;
+}
+
+.site-nav a.nav-link {
+  font-size: 1.6em;
+}
+
+.site-nav a {
+  border-bottom: none;
+}
+
+.site-nav a:hover {
+  color: lightgrey;
 }
 
 /********** HELPER **********/
@@ -461,4 +498,8 @@ section.about .out-box {
 
 .separator {
   color: goldenrod;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
