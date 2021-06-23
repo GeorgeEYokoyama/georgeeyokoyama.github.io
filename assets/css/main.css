@@ -150,6 +150,7 @@ section .icon {
 /* Page -- Intro */
 .intro.hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/header_image.jpg");
+  background-attachment: fixed;
 }
 
 section.about .out-box {
@@ -254,6 +255,7 @@ section.about .out-box {
 /* Page -- Portfolio */
 .portfolio .hero {
   background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("../img/header_image.jpg");
+  background-attachment: fixed;
 }
 
 /********** STACK **********/
